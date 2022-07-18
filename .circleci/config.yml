@@ -1,6 +1,5 @@
 version: 2.1
 
-
 jobs:
   build:
     docker:
@@ -8,6 +7,7 @@ jobs:
     steps:
       - checkout
       - run: npm i
+             npm install --save-dev @babel/cli@7.18.6
       - save_cache:
           key: "npm-packages"
           paths:
@@ -28,7 +28,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm install --save-dev
       - restore_cache:
           keys:
             - "npm-packages"
